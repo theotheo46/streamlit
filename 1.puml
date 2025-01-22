@@ -1,0 +1,31 @@
+@startuml
+
+[*] --> OPENED
+
+state OPENED {
+}
+
+OPENED --> IN_PROGRESS : Developer
+
+state IN_PROGRESS {
+}
+
+IN_PROGRESS --> READY_TO_TEST : Developer
+
+state READY_TO_TEST {
+}
+
+READY_TO_TEST --> ACCEPTED : Tester
+READY_TO_TEST --> NOT_ACCEPTED : Tester
+
+state NOT_ACCEPTED {
+}
+
+NOT_ACCEPTED --> IN_PROGRESS : Developer
+
+state ACCEPTED {
+}
+
+ACCEPTED --> [*]
+
+@enduml
